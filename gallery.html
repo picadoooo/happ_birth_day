@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📸 Our Memories Together 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #ff4d88;
+      --lavender: #e6ccff;
+      --card: #ffffff;
+      --ink: #5a2a3a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #e6ccff);
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      padding: 28px 16px 60px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 38px;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--pink);
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Falling hearts */
+    #hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      top: -40px;
+      font-size: 22px;
+      color: #ff4d88;
+      animation: fall 6s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="hearts"></div>
+
+  <header>
+    <h1>📸 Our Memories Together 💖</h1>
+    <nav>
+      <a href="index.html">Birthday</a>
+      <a href="poem.html">Poem</a>
+      <a href="about-her.html">About You</a>
+      <a href="surprise.html">Surprise</a>
+      <a href="game.html">Mini Game</a>
+    </nav>
+  </header>
+
+  <div class="gallery">
+    <img src="/Pro/Screenshot_20260302_124801.jpg" alt="Memory 1" />
+    <img src="/Pro/Screenshot_20260302_123958.jpg" alt="Memory 2" width="300" 
+     height="100" />
+    <img src="/Pro/Screenshot_20260302_123533.jpg" alt="Memory 3"  width="300" 
+     height="100"/>
+    <img src="/Pro/Screenshot_20260302_123601.jpg" alt="Memory 4" width="300" 
+     height="100" />
+    <img src="/Pro/Screenshot_2026_0302_123857.jpg" alt="Memory 5" width="300" 
+     height="100" />
+    <img src="/Pro/Screenshot_2026_0302_141246.jpg" alt="Memory 6"  width="300" 
+     height="100"/>
+    <img src="/Pro/Screenshot_2026_0302_124302.jpg" alt="Memory 7" width="300" 
+     height="100" />
+    <img src="/Pro/Screenshot_2026_0302_123928.jpg" alt="Memory 9"  width="300" 
+     height="100"/>
+    <img src="/Pro/Screenshot_2026_0302_123828.jpg" alt="Memory 10" width="300" 
+     height="100" />
+    <img src="/Pro/Screenshot_2026_0302_131804.jpg" alt="Memory 11" width="300" 
+     height="100" />
+  </div>
+
+  <script>
+    // Falling hearts
+    const heartContainer = document.getElementById('hearts');
+    const emojis = ['💖','❤️','💕','💘','💞'];
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (18 + Math.random() * 16) + 'px';
+      heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+      heartContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
+
